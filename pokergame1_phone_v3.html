@@ -90,9 +90,18 @@
         background-color: #c8d7b4;
       }
 
-      .finishedCards.blank {
-        background-color: #50673a;
-        border: 2px inset #50673a;
+      .finishedCards.blank {
+        background-color: #50673a;
+        border: 2px inset #50673a;
+        color: #384829;
+      }
+      .finishedCards.blank::before {
+        content: var(--suit-content);
+        position: absolute;
+        justify-content: center;
+        top: 10%;
+        font-size: max(min(8vw, 96px), 64px);
+        transform: scaleX(var(--suit-times));
       }
 
       /* 禁用点击事件（应用于手牌区拖拽事件） */
@@ -299,12 +308,12 @@
         </div>
 
         <div class="blocks">
-          <div class="basebox finished">
-            <div class="cardGroup finishedCards blank"></div>
-            <div class="cardGroup finishedCards blank"></div>
-            <div class="cardGroup finishedCards blank"></div>
-            <div class="cardGroup finishedCards blank"></div>
-          </div>
+          <div class="basebox finished">
+            <div class="cardGroup finishedCards Spade blank"></div>
+            <div class="cardGroup finishedCards Heart blank"></div>
+            <div class="cardGroup finishedCards Diamond blank"></div>
+            <div class="cardGroup finishedCards Club blank"></div>
+          </div>
 
           <div class="basebox hand">
             <div class="cardGroup handCards disableClick blank"></div>
