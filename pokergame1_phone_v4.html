@@ -13,6 +13,12 @@
         margin: 0;
         background-color: #a5bd8a;
       }
+      /* 全局锁定字体缩放 */
+      body {
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+        -moz-text-size-adjust: 100% !important;
+      }
 
       /* 最外框设置 */
       #mainContent,
@@ -242,7 +248,6 @@
 
       /* 恭喜完成游戏 */
       #congradulate {
-        height: 0px;
         font-size: 4rem;
         display: flex;
         justify-content: center;
@@ -675,7 +680,6 @@
                     );
                     dragTemp =
                       selectedCard[selectedCard.length - 1 - selectIndex];
-                    console.log(selectIndex, dragTemp);
                   }
                   dropEvent(dragTemp, dropTarget);
                   // 移除原有选中状态
@@ -781,7 +785,7 @@
           ) {
             gameFinished = true;
             document.querySelector("#congradulate").innerHTML =
-              "<div style='position: relative; bottom: 500px'>❋ 恭喜您完成游戏！❋</div>";
+              "<div>❋ 恭喜您完成游戏！❋</div>";
             document.querySelector("#undo").disabled = true;
             if (gameSaved === false) {
               cardOrderList += "[" + cardOrder.toString() + "],";
