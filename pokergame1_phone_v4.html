@@ -307,7 +307,7 @@
 
       <div id="gameContent">
         <div class="buttons">
-          <button onclick="randomGameStart()">▷ 开始</button>
+          <button id="start" onclick="randomGameStart()">▷ 开始</button>
           <button id="undo" onclick="undo()" disabled>↶ 撤销</button>
           <button id="restart" onclick="restart()" disabled>↺ 重来</button>
         </div>
@@ -340,6 +340,7 @@
         </div>
 
         <div id="congradulate"></div>
+        <div id="test"></div>
       </div>
     </div>
 
@@ -799,6 +800,22 @@
         setEvent();
         clickEvent();
         document.querySelector("#tip").innerHTML = passGameList.length;
+
+        const startButton = document.querySelector("#start");
+        const buttonFontSize = window.getComputedStyle(startButton).fontSize;
+
+        const physicalWidth = window.screen.width;
+        const viewportWidth = window.innerWidth;
+        const docWidth = document.documentElement.clientWidth;
+        document.querySelector("#test").innerHTML =
+          "开始按钮字号：" +
+          buttonFontSize +
+          "，设备原生分辨率：" +
+          physicalWidth +
+          "，随窗口缩放变化：" +
+          viewportWidth +
+          "，去除了滚动条占位：" +
+          docWidth;
       };
 
       // 开始指定牌局
